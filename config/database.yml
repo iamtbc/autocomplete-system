@@ -59,6 +59,9 @@ development:
 test:
   <<: *default
   database: autocomplete_system_test
+  username: <%= ENV["AUTOCOMPLETE_SYSTEM_DATABASE_USERNAME"] %>
+  password: <%= ENV["AUTOCOMPLETE_SYSTEM_DATABASE_PASSWORD"] %>
+  host: <%= ENV["AUTOCOMPLETE_SYSTEM_DATABASE_HOST"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

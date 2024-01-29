@@ -5,7 +5,7 @@ class RedisGateway
     @db = db
   end
 
-  delegate :get, :set, to: :client
+  delegate :get, :set, :flushdb, to: :client
 
   private
 

@@ -24,4 +24,11 @@ RSpec.describe RedisGateway do
       expect(redis).to have_received(:set).with('test_key', 'test_value')
     end
   end
+
+  describe '#flushdb' do
+    it 'calls Redis#flushdb' do
+      gateway.flushdb
+      expect(redis).to have_received(:flushdb)
+    end
+  end
 end

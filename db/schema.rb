@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_02_112355) do
   enable_extension "plpgsql"
 
   create_table "autocompletes", primary_key: "query", id: :string, force: :cascade do |t|
-    t.json "candidates"
+    t.jsonb "candidates"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

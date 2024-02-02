@@ -13,8 +13,8 @@ RSpec.describe Frequency, type: :model do
       trie = Frequency.generate_trie(version:)
 
       expect(trie).to be_a(Autocompletes::Trie)
-      expect(trie.search("apple")).to eq(10)
-      expect(trie.search("banana")).to eq(5)
+      expect(trie.search("apple").count).to eq(10)
+      expect(trie.search("banana").count).to eq(5)
       expect(trie.search("cherry")).to be_nil
     end
   end

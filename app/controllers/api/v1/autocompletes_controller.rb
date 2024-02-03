@@ -10,18 +10,11 @@ module Api
       private
 
       def search_service
-        @search_service ||= Autocompletes::Searcher.new(cache_service:)
+        @search_service ||= Autocompletes::Searcher.new(cache_service:, expires_in: 1.hour)
       end
 
       def cache_service
-        @cache_service ||= Autocompletes::Cacher.new(cache_gateway:)
-      end
-
-      def cache_gateway
-        host = ENV.fetch("AUTOCOMPLETE_SYSTEM_CACHE_HOST")
-        port = ENV.fetch("AUTOCOMPLETE_SYSTEM_CACHE_PORT")
-        db = ENV.fetch("AUTOCOMPLETE_SYSTEM_CACHE_DB")
-        @cache_gateway ||= RedisGateway.new(host:, port:, db:)
+        @cache_service ||= Rails.cache
       end
     end
   end
